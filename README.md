@@ -8,7 +8,7 @@ We provide an interface for the management of infrastructure for event based con
 3. [Outputs](#Outputs)
 4. [Application](#Application)
 5. [Reasoning](#Reasoning)
-6. [What-I-Would-Fix](#What-I-Would-Fix)
+6. [What I Would Fix](#What-I-Would-Fix)
 
 # Initial Deployment 
 
