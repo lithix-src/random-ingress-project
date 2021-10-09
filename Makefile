@@ -15,6 +15,19 @@ console:
 		-e TF_VAR_slack_channel=${TF_VAR_slack_channel} \
 		-it ingress-prj:latest /bin/bash
 
+run:
+	docker container run \
+		-e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+		-e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
+		-e INGRESS_PRJ_STATE_BKT=${INGRESS_PRJ_STATE_BKT} \
+		-e TF_VAR_assume_role_arn=${TF_VAR_assume_role_arn} \
+		-e TF_VAR_src_ip=${TF_VAR_src_ip} \
+		-e TF_VAR_ingress_s3_bucket=${TF_VAR_ingress_s3_bucket} \
+		-e TF_VAR_slack_webhook=${TF_VAR_slack_webhook} \
+		-e TF_VAR_slack_user=${TF_VAR_slack_user} \
+		-e TF_VAR_slack_channel=${TF_VAR_slack_channel} \
+		-it ingress-prj:latest
+
 automation-role-plan:
 	cd ./infrastructure/rbac \
 		&& terragrunt plan

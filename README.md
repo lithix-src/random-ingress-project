@@ -30,8 +30,7 @@ export TF_VAR_slack_webhook=ingress-app
 export TF_VAR_slack_user=ingress-app
 export TF_VAR_slack_channel="#random-bots"
 ```
-
-3. Run `make app` to deploy full application and supporting environment. Making any changes to the environment only requires running `make app` again to refresh the application cloud.
+3. Run `make run` to deploy full application and supporting environment. Making any changes to the environment only requires running `make run` again to refresh the application cloud.
 
 ## Requirements
 - make
