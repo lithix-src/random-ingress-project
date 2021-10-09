@@ -1,0 +1,9 @@
+.terraform*
+package*
+*pyc
+*zip
+build*
+*.lock*
+bad-file.txt
+good-file.txt
+ingress-prj.tf
