@@ -3,9 +3,11 @@
 We provide an interface for the management of infrastructure for event based consumption of file based ingress. 
 
 ## Services provided
-- [Initial Deployment](#Initial-Depolyment)
-- [Requirements](#Requirements)
-- [Outputs](#Outputs)
+1. [Initial Deployment](#Initial-Depolyment)
+2. [Requirements](#Requirements)
+3. [Outputs](#Outputs)
+4. [Application](#Application)
+5. [Reasoning](#Reasoning)
 
 # Initial Deployment 
 
