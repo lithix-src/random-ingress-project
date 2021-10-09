@@ -8,6 +8,7 @@ We provide an interface for the management of infrastructure for event based con
 3. [Outputs](#Outputs)
 4. [Application](#Application)
 5. [Reasoning](#Reasoning)
+6. [What-I-Would-Fix](#What-I-Would-Fix)
 
 # Initial Deployment 
 
@@ -72,3 +73,11 @@ The aws cli gives me simple task management execution. Usually used for tests li
 ## slack
 
 Easy to use platform with incoming webhooks. No fuss, just an easy to use endpoint to trigger notifications and custom messages.
+
+# What I Would Fix
+
+So much..
+
+1. Lots of IAM nonsense, and centralize it better in the rbac module
+2. More consistent naming standard across module files
+3. Lots more error handling and metrics based off them
