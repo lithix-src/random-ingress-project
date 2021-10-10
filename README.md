@@ -30,7 +30,13 @@ export TF_VAR_slack_webhook=ingress-app
 export TF_VAR_slack_user=ingress-app
 export TF_VAR_slack_channel="#random-bots"
 ```
-3. Run `make run` to deploy full application and supporting environment. Making any changes to the environment only requires running `make run` again to refresh the application cloud.
+
+3. Run `make automation-role` to create the `robot-role` for the Lambda function, then export it's `arn` as a Terraform variable
+```
+export TF_VAR_assume_role_arn="arn:aws:iam::1234566:policy/ingress-prj-robot"
+```
+
+4. Run `make run` to deploy full application and supporting environment. Making any changes to the environment only requires running `make run` again to refresh the application cloud.
 
 ## Requirements
 - make
@@ -54,6 +60,16 @@ The application mimics the concept of a file ingress parser. The parser simply a
 The summed value is then output to a slack channel and used for custom CloudWatch metrics. Metrics data is then used for custom metric queries and alerting. Logs are also parsed as custom metrics and used for alert generation. Parse data is output to custom slack channel, as well as parsing errors.
 
 # Reasoning
+
+## Terragrunt
+
+**Terragrunt** instead of something like **Pulumi** came from the basic ideas behind this amusing quote, which I can't remember from where I got it..some misc internet chat: 
+
+> to avoid the creativity of coworkers
+
+While still benefiting from some of the ideas, like moving variables around and thinking of chunks of infrastructure as objects. It's of my opinion that infrastructure isn't development, though. It's plumbing and electrical and solid bones of the platform. It's in the service to the platform where obfuscation of misc tools is actually not as bad. 
+
+Otherwise, what the platform sits on seems to me as a stable, standaradized framework. In this case a language and structural adoption across most infrastructure engineering in organizations, **Terraform** and **HCL** with matching tools that wrap 
 
 ## make
 
@@ -80,3 +96,4 @@ So much..
 1. Lots of IAM nonsense, and centralize it better in the rbac module
 2. More consistent naming standard across module files
 3. Lots more error handling and metrics based off them
+4. Move to a cloud KMS for secrets and config values
