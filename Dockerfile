@@ -22,6 +22,13 @@ RUN apt-get -q -qq update \
     && wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip \
     && unzip terraform_1.0.8_linux_amd64.zip -d /usr/bin/
 
+# fixes botocore's issue with requests lib
+RUN  apt remove python3-botocore \
+    && pip3 uninstall botocore \
+    && apt install python3-botocore \
+    && apt install awscli \
+    && install --upgrade boto3 awscli
+
 WORKDIR /APP
 
 COPY ./ /APP
