@@ -25,9 +25,9 @@ RUN apt-get -q -qq update \
 # fixes botocore's issue with requests lib
 RUN  apt remove python3-botocore \
     && pip3 uninstall botocore \
-    && apt install python3-botocore \
-    && apt install awscli \
-    && install --upgrade boto3 awscli
+    && apt install -y python3-botocore \
+    && apt install -y awscli \
+    && pip install --upgrade boto3 awscli
 
 WORKDIR /APP
 
